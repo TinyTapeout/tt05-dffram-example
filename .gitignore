@@ -8,3 +8,4 @@ src/__pycache__/
 src/__tinytapeout
 src/results.xml
 src/user_config.tcl
+failures_report.json
