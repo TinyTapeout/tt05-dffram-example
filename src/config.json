@@ -3,6 +3,7 @@
   "VERILOG_FILES": ["src/dffram.v"],
   "EXTRA_VERILOG_MODELS": ["src/RAM32.v"],
 
+  "SYNTH_POWER_DEFINE": "USE_POWER_PINS",
   "MACROS": {
     "RAM32": {
       "instances": {
