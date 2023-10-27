@@ -60,4 +60,4 @@ if __name__ == '__main__':
 		pdk        = "sky130A",
 	)
 
-	flow.start(last_run = args.open_in_klayout, tag = "wokwi")
+	flow.start(tag = "wokwi")
