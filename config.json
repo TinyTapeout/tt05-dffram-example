@@ -24,8 +24,8 @@
   },
 
   "FP_SIZING": "absolute",
-  "DIE_AREA": "0 0 678.96 225.76",
-  "FP_DEF_TEMPLATE": "dir::tt/def/tt_block_4x2.def",
+  "DIE_AREA": "0 0 667.92 225.76",
+  "FP_DEF_TEMPLATE": "dir::tt-custom-gds/tt_block_4x2_pg.def",
 
   "//": "use alternative efabless decap cells to solve LI density issue",
   "DECAP_CELL": [

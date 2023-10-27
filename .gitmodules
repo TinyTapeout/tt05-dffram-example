@@ -1,0 +1,3 @@
+[submodule "tt-custom-gds"]
+	path = tt-custom-gds
+	url = https://github.com/TinyTapeout/tt-custom-gds
