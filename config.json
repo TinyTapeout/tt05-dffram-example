@@ -5,9 +5,6 @@
 
   "FP_PDN_CHECK_NODES": false,
   "FP_PDN_CFG": "pdn_cfg.tcl",
-  "PDN_MACRO_CONNECTIONS": [
-    "ram1 VPWR VGND VPWR VGND"
-  ],
   
   "MACROS": {
     "RAM32": {
