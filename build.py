@@ -11,25 +11,11 @@
 import argparse
 import json
 import os
-import sys
-
-from typing import List, Type
 
 from openlane.flows.misc import OpenInKLayout
-from openlane.flows.sequential import SequentialFlow
 from openlane.flows.classic import Classic
 from openlane.steps.odb import OdbpyStep
-from openlane.steps import (
-	Step,
-	Yosys,
-	OpenROAD,
-	Magic,
-	Verilator,
-	KLayout,
-	Odb,
-	Netgen,
-	Checker,
-)
+from openlane.steps import OpenROAD
 
 class CustomPower(OdbpyStep):
 
