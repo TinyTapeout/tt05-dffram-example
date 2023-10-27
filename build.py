@@ -17,13 +17,14 @@ from typing import List, Type
 
 from openlane.flows.misc import OpenInKLayout
 from openlane.flows.sequential import SequentialFlow
+from openlane.flows.classic import Classic
 from openlane.steps.odb import OdbpyStep
 from openlane.steps import (
 	Step,
 	Yosys,
 	OpenROAD,
 	Magic,
-	Misc,
+	Verilator,
 	KLayout,
 	Odb,
 	Netgen,
@@ -42,50 +43,16 @@ class CustomPower(OdbpyStep):
 		)
 
 
-class ProjectFlow(SequentialFlow):
-
-	Steps: List[Type[Step]] = [
-		Yosys.JsonHeader,
-		Yosys.Synthesis,
-		Checker.YosysUnmappedCells,
-		Checker.YosysSynthChecks,
-		OpenROAD.CheckSDCFiles,
-		OpenROAD.Floorplan,
-		Odb.ApplyDEFTemplate,
-		Odb.SetPowerConnections,
-		Odb.ManualMacroPlacement,
-		OpenROAD.GeneratePDN,
-		CustomPower,
-		OpenROAD.GlobalPlacement,
-		OpenROAD.DetailedPlacement,
-		OpenROAD.GlobalRouting,
-		OpenROAD.DetailedRouting,
-		Checker.TrDRC,
-		Odb.ReportDisconnectedPins,
-		Checker.DisconnectedPins,
-		Odb.ReportWireLength,
-		Checker.WireLength,
-		OpenROAD.RCX,
-		OpenROAD.STAPostPNR,
-		OpenROAD.IRDropReport,
-		Magic.StreamOut,
-		Magic.WriteLEF,
-		KLayout.StreamOut,
-		KLayout.XOR,
-		Checker.XOR,
-		Magic.DRC,
-		Checker.MagicDRC,
-		Magic.SpiceExtraction,
-		Checker.IllegalOverlap,
-		Netgen.LVS,
-		Checker.LVS,
-	]
-
+class ProjectFlow(Classic):
+  pass
 
 if __name__ == '__main__':
 	# Argument processing
 	parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	parser.add_argument("--open-in-klayout", action="store_true", help="Open last run in KLayout")
+
+  # Insert our custom step after the PDN generation
+	ProjectFlow.Steps.insert(ProjectFlow.Steps.index(OpenROAD.GeneratePDN) + 1, CustomPower)
 
 	args = parser.parse_args()
 	config = vars(args)

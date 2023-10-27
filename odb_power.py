@@ -26,8 +26,8 @@ def power(reader):
   met4 = tech.findLayer('met4')
   vpwr_wire = vpwr_net.getSWires()[0]
   vgnd_wire = vgnd_net.getSWires()[0]
-  odb.dbSBox_create(vpwr_wire, met4, 18280, 143520, 19880, 144120, "STRIPE")
-  odb.dbSBox_create(vgnd_wire, met4, 95080, 143520, 96680, 144120, "STRIPE")
+  odb.dbSBox_create(vpwr_wire, met4, 28280, 143520, 29880, 144120, "STRIPE")
+  odb.dbSBox_create(vgnd_wire, met4, 105080, 143520, 106680, 144120, "STRIPE")
 
 if __name__ == "__main__":
   power()

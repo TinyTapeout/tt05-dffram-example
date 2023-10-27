@@ -3,6 +3,8 @@
 
 `define default_netname none
 
+/* verilator lint_off UNUSEDSIGNAL */
+
 module tt_um_urish_dffram (
 `ifdef USE_POWER_PINS
   input VPWR,
