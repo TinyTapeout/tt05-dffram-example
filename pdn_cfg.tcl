@@ -43,6 +43,3 @@ if { $::env(FP_PDN_ENABLE_RAILS) == 1 } {
         -grid stdcell_grid \
         -layers "$::env(FP_PDN_RAIL_LAYER) $::env(FP_PDN_VERTICAL_LAYER)"
 }
-
-define_pdn_grid -macro -name ram -grid_over_boundary -starts_with POWER -instances ram1
-add_pdn_connect -grid ram -layers "met4 met4"
