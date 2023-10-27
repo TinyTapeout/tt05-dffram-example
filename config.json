@@ -6,7 +6,6 @@
   "FP_PDN_CHECK_NODES": false,
   "FP_PDN_VOFFSET": 26.32,
   "FP_PDN_CFG": "pdn_cfg.tcl",
-  "RUN_IRDROP_REPORT": false,
 
   "MACROS": {
     "RAM32": {
