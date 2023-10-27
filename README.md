@@ -1,29 +1,12 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
+![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# What is Tiny Tapeout?
+## Tiny Tapeout DFFRAM Example
+
+## What is Tiny Tapeout?
 
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
 
 To learn more and get started, visit https://tinytapeout.com.
-
-## Wokwi Projects
-
-Edit the [info.yaml](info.yaml) and change the wokwi_id to the ID of your Wokwi project. You can find the ID in the URL of your project, it's the big number after `wokwi.com/projects/`.
-
-The GitHub action will automatically fetch the digital netlist from Wokwi and build the ASIC files.
-
-## Verilog Projects
-
-Edit the [info.yaml](info.yaml) and uncomment the `source_files` and `top_module` properties, and change the value of `language` to "Verilog". Add your Verilog files to the `src` folder, and list them in the `source_files` property.
-
-The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
-
-## How to enable the GitHub actions to build the ASIC files
-
-Please see the instructions for:
-
-- [Enabling GitHub Actions](https://tinytapeout.com/faq/#when-i-commit-my-change-the-gds-action-isnt-running)
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
 
 ## Resources
 
