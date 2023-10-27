@@ -12,10 +12,12 @@ import argparse
 import json
 import os
 
+from openlane.common import get_opdks_rev
 from openlane.flows.misc import OpenInKLayout
 from openlane.flows.classic import Classic
 from openlane.steps.odb import OdbpyStep
 from openlane.steps import OpenROAD
+import volare
 
 class CustomPower(OdbpyStep):
 
@@ -43,7 +45,8 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	config = vars(args)
 
-	PDK_ROOT = os.getenv('PDK_ROOT')
+	pdk_root =  volare.get_volare_home(os.getenv('PDK_ROOT'))
+	volare.enable(pdk_root, "sky130", get_opdks_rev())
 
 	# Load fixed required config for UPW
 	flow_cfg = json.loads(open('config.json', 'r').read())
@@ -53,7 +56,7 @@ if __name__ == '__main__':
 	flow = flow_class(
 		flow_cfg,
 		design_dir = ".",
-		pdk_root   = PDK_ROOT,
+		pdk_root   = pdk_root,
 		pdk        = "sky130A",
 	)
 
