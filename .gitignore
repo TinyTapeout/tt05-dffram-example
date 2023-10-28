@@ -9,3 +9,4 @@ src/__tinytapeout
 src/results.xml
 src/user_config.tcl
 failures_report.json
+abc.history
