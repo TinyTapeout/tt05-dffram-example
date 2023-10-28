@@ -26,10 +26,19 @@ def power(reader):
   met4 = tech.findLayer('met4')
   vpwr_wire = vpwr_net.getSWires()[0]
   vgnd_wire = vgnd_net.getSWires()[0]
+  vpwr_bterm = vpwr_net.getBTerms()[0]
+  vgnd_bterm = vgnd_net.getBTerms()[0]
+  vpwr_bpin = vpwr_bterm.getBPins()[0]
+  vgnd_bpin = vgnd_bterm.getBPins()[0]
   for i in range(3):
-    odb.dbSBox_create(vpwr_wire, met4, 28280 + i * 153600, 11880, 29880 + i * 153600, 144120, "STRIPE")
+    x = 28280 + i * 153600
+    odb.dbSBox_create(vpwr_wire, met4, x, 11880, x + 1600, 144120, "STRIPE")
+    odb.dbBox_create(vpwr_bpin, met4, x, 11880, x + 1600, 144120)
   for i in range(2):
-    odb.dbSBox_create(vgnd_wire, met4, 105080 + i * 153600, 11880, 106680 + i * 153600, 144120, "STRIPE")
+    x = 105080 + i * 153600
+    odb.dbSBox_create(vgnd_wire, met4, x, 11880, x + 1600, 144120, "STRIPE")
+    odb.dbBox_create(vgnd_bpin, met4, x, 11880, x + 1600, 144120)
+
 
 if __name__ == "__main__":
   power()
