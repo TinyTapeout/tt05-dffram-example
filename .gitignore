@@ -3,10 +3,10 @@
 .vscode
 *.vcd
 runs
-src/sim_build
-src/__pycache__/
 src/__tinytapeout
-src/results.xml
-src/user_config.tcl
+test/__pycache__/
+test/gate_level_netlist.v
+test/results.xml
+test/sim_build
 failures_report.json
 abc.history

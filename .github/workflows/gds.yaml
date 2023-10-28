@@ -18,6 +18,20 @@ jobs:
         with:
           openlane-tag: fbfe20ebf95e1b3e9230821ea9c6d9b6f7ef9989
 
+  gl_test:
+    needs: gds
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: GL test
+        uses: TinyTapeout/tt-gds-action/gl_test@openlane2
+        with:
+          test-dir: test
+
   viewer:
     needs: gds
     runs-on: ubuntu-latest
