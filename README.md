@@ -23,6 +23,16 @@ The build.py script will create a runs directory and run the OpenLane flow. The 
 When you run the build for the first time, nix will download all the dependencies. This can take a while, especially if you
 haven't configured nix to use binary caches. Once the dependencies are downloaded, the build should take up to ten minutes.
 
+## Changing the position of the RAM32 macro
+
+You can change the position of the RAM32 macro in your design by editing `config.json` as follows:
+
+1. Set `MACROS.RAM32.instances.ram1.location` to the x/y coordinates you want the RAM32 to be placed at.
+2. Set `FP_PDN_VOFFSET` to the x coordinate of the RAM + 16.32 (so if the RAM is at 10, set `FP_PDN_VOFFSET` to 16.32).
+
+Note that PDN (power distribution network) stripes of your design must match the PDN stripes of the RAM32 macro. Therefore, you must keep 
+`FP_PDN_VPITCH` at the default value (153.6), and set `FP_PDN_VOFFSET` to the x coordinate of the RAM + 16.32 (as explained above).
+
 ## Resources
 
 - [FAQ](https://tinytapeout.com/faq/)

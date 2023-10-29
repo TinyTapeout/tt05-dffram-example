@@ -11,6 +11,7 @@
 import argparse
 import json
 import os
+from typing import List
 
 from openlane.common import get_opdks_rev
 from openlane.flows.misc import OpenInKLayout
@@ -29,6 +30,14 @@ class CustomPower(OdbpyStep):
 			os.path.dirname(__file__),
 			"odb_power.py"
 		)
+
+	def get_command(self) -> List[str]:
+		macro = self.config["MACROS"]['RAM32']
+		instance = macro.instances['ram1']
+		return super().get_command() + [
+			"--macro-x-pos",
+			instance.location[0],
+		]
 
 
 class ProjectFlow(Classic):
