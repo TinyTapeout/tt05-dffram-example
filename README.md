@@ -8,6 +8,21 @@ TinyTapeout is an educational project that aims to make it easier and cheaper th
 
 To learn more and get started, visit https://tinytapeout.com.
 
+## Building the project locally
+
+1. Install [OpenLane 2 with nix](https://openlane2.readthedocs.io/en/latest/getting_started/nix_installation/index.html).
+   Set the `OPENLANE2_ROOT` environment variable to the path where you cloned the openlane2 repository.
+2. Run the following command:
+
+```bash
+rm -rf runs && nix-shell ${OPENLANE2_ROOT}/shell.nix --run "python build.py"
+```
+
+The build.py script will create a runs directory and run the OpenLane flow. The results will be in the runs/wokwi directory.
+
+When you run the build for the first time, nix will download all the dependencies. This can take a while, especially if you
+haven't configured nix to use binary caches. Once the dependencies are downloaded, the build should take up to ten minutes.
+
 ## Resources
 
 - [FAQ](https://tinytapeout.com/faq/)
