@@ -2,7 +2,7 @@
 
 ## Tiny Tapeout DFFRAM Example
 
-This project includes a 32x32 DFFRAM macro with a single read/write port (1RW). 
+This project includes a 32x32 (1024 bits) DFFRAM macro with a single read/write port (1RW). 
 
 The size of the example project is 2x4 tiles, and the DFFRAM macro takes roughly 40% of the available space, leaving plenty of space for custom logic.
 
